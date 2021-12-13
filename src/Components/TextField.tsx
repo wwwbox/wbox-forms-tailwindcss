@@ -5,10 +5,10 @@ import {FieldProps} from "wbox-forms";
 
 export interface TailwindInputProps extends FieldProps, WrappedFieldProps {
     placeholder?: string;
+    autoComplete?: string;
 }
 
 interface Props extends TailwindInputProps, WithFieldProps, WithTailwindFieldProps {
-
 }
 
 export function TailwindInputField(props: Props) {
@@ -16,6 +16,7 @@ export function TailwindInputField(props: Props) {
     const {classNameBuilder, theme} = tailwindOptions;
     let className = classNameBuilder.build(props.className, stateBasedClassNameSelector(theme.inputClassName, props.field));
     return <input name={props.name}
+                  autoComplete={props.autoComplete}
                   data-testid={tailwindOptions.dataTestId}
                   className={className}
                   placeholder={props.placeholder}

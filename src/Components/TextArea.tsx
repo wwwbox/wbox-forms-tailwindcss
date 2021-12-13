@@ -14,9 +14,10 @@ interface Props extends TailwindInputProps, WithFieldProps, WithTailwindFieldPro
 
 function TextArea(props: Props) {
     const {tailwindOptions} = props;
+    let className = tailwindOptions.classNameBuilder.build(props.className, stateBasedClassNameSelector(tailwindOptions.theme.textAreaClassName, props.field));
     return <textarea name={props.name}
                      data-testid={tailwindOptions.dataTestId}
-                     className={tailwindOptions.classNameBuilder.build(props.className, stateBasedClassNameSelector(tailwindOptions.theme.textAreaClassName, props.field))}
+                     className={className}
                      rows={props.rows}
                      placeholder={props.placeholder}
                      {...tailwindOptions.inputProps}
@@ -25,6 +26,4 @@ function TextArea(props: Props) {
 }
 
 
-export default withTailwindField(TextArea,
-    "textarea"
-);
+export default withTailwindField(TextArea, "textarea");

@@ -5,7 +5,6 @@ import {withTailwindField, WithTailwindFieldProps, WrappedFieldProps} from "../H
 import {stateBasedClassNameSelector} from "../Utils/ClassNameBuilder";
 
 export interface TailwindSelectProps extends FieldProps, WrappedFieldProps, WithOptions {
-    placeholder?: string;
 }
 
 interface Props extends TailwindSelectProps, WithFieldProps, WithTailwindFieldProps {
@@ -20,7 +19,6 @@ function SelectField(props: Props) {
     return <select name={props.name}
                    data-testid={tailwindOptions.dataTestId}
                    className={selectClassName}
-                   placeholder={props.placeholder}
                    {...tailwindOptions.inputProps}
                    value={props.field.value}
                    onChange={props.handleChange}>
