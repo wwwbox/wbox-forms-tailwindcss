@@ -20,6 +20,7 @@ function RadioButton(props: Props) {
     const defaults = useDefaults();
     const orientation: Orientation = props.orientation ?? defaults.radioButtonOrientation;
     const wrapperClassName = tailwindOptions.classNameBuilder.build(undefined, stateBasedClassNameSelector(tailwindOptions.theme.radio.wrapper, props.field));
+    const spaceClassName = orientation ===  "vertical" ? "block w-4" : "inline-block w-4"
     return <div className={wrapperClassName}>
         {
             props.options.map((option, index) =>
@@ -36,7 +37,7 @@ function RadioButton(props: Props) {
                                    handleChange={props.handleChange}
                                    text={option.text}/>
                     {
-                        index < props.options.length - 1 && <span className={'inline-block w-4'}/>
+                        index < props.options.length - 1 && <span className={spaceClassName}/>
                     }
                 </React.Fragment>
             )
