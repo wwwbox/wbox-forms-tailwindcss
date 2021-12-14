@@ -44,7 +44,7 @@ export function ChoiceBoxBase(props: ChoiceBoxProps) {
 
     return <label className={labelClassName}>
         <input type={type}
-               id={dataTestId}
+               data-testid={dataTestId}
                name={name}
                className={inputClassName}
                checked={checked}
